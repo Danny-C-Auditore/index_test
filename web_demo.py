@@ -2,6 +2,7 @@ import gradio as gr
 from model import citation_correction, load_model
 import argparse
 import os
+import torch
 
 from arguments import add_model_config_args
 
@@ -56,7 +57,9 @@ def query(query: str):
         yield answer, "<h3>References (Click to Expand)</h3>" + "\n".join([ref_html.format(**item, index = idx + 1) for idx, item in enumerate(refs)])
     
 if __name__ == '__main__':
+    torch.cuda.empty_cache()
     os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128"
+    #print(torch.cuda.memory_summary())
     arg = argparse.ArgumentParser()
     add_model_config_args(arg)
     args = arg.parse_args()
