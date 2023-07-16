@@ -8,7 +8,7 @@ class WebGLM:
         self.ref_retriever = ReferenceRetiever(retriever_ckpt_path, device, filter_max_batch_size, searcher_name)
         self.tokenizer = AutoTokenizer.from_pretrained(webglm_ckpt_path, trust_remote_code=True)
         self.model = AutoModelForSeq2SeqLM.from_pretrained(webglm_ckpt_path, trust_remote_code=True)
-        self.model = self.model.half()
+        self.model = self.model
         if device:
             self.model.to(device)
         self.model.eval()
