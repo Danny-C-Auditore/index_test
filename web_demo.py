@@ -89,4 +89,4 @@ if __name__ == '__main__':
         # query_button.click(query, query_box, [answer_box, ref_boxes])
 
     demo.queue()
-    demo.launch()
+    demo.launch(share=True)
