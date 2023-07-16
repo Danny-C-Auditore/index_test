@@ -6,7 +6,7 @@ def add_model_config_args(parser):
     
     parser.add_argument("-r", "--retriever_ckpt_path", type=str, default=None, help="path to the retriever checkpoint, default to $WEBGLM_RETRIEVER_CKPT")
     
-    parser.add_argument("-d", "--device", type=str, default="cuda", help="device to run the model, default to cuda")
+    parser.add_argument("-d", "--device", type=str, default="None", help="device to run the model, default to cuda")
     
     parser.add_argument("-b", "--filter_max_batch_size", type=int, default=50, help="max batch size for the retriever, default to 50")
     
