@@ -65,7 +65,8 @@ if __name__ == '__main__':
     args = arg.parse_args()
     
     webglm = load_model(args)
-    
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
+    torch.cuda.empty_cache()
     with gr.Blocks(theme=gr.themes.Base(), css=CSS) as demo:
         
         with gr.Column(elem_id='col'):
