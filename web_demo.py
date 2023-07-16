@@ -58,7 +58,7 @@ def query(query: str):
     
 if __name__ == '__main__':
     torch.cuda.empty_cache()
-    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:128"
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
     #print(torch.cuda.memory_summary())
     arg = argparse.ArgumentParser()
     add_model_config_args(arg)
